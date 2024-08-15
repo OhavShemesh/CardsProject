@@ -11,6 +11,7 @@ const ROUTES = {
   LOGIN: "/login",
   USER_PROFILE: "/user-info",
   EDIT_USER: "/edit-user",
+  WIDNOW: "/window",
   SANDBOX: "/sandbox",
 };
 

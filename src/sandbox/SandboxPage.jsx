@@ -4,11 +4,12 @@ import MyMessage from "./propsAndChildren/MyMessage";
 import Counter from "./states/Counter";
 import Countries from "./effects/Countries";
 import GrandParent from "./context/GrandParent";
+import FormExample from "./forms/FormExample";
 
 export default function SandboxPage() {
   return (
     <div>
-      <GrandParent />
+      <FormExample />
     </div>
   );
 }

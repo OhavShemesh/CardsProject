@@ -10,6 +10,7 @@ import MyCardsPage from "../cards/pages/MyCardsPage";
 import SandboxPage from "../sandbox/SandboxPage";
 import SignupPage from "../users/pages/SignupPage";
 import CardDetailsPage from "../cards/pages/CardDetailsPage";
+import UseWindowSize from "../homework/UseWindowSize";
 
 export default function Router() {
   return (
@@ -23,6 +24,7 @@ export default function Router() {
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
       <Route path={ROUTES.CARD_INFO + "/:id"} element={<CardDetailsPage />} />
       <Route path={ROUTES.SANDBOX} element={<SandboxPage />} />
+      <Route path={ROUTES.WIDNOW} element={<UseWindowSize />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

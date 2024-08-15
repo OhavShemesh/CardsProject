@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PageHeader from "../../components/PageHeader";
-import Cards from "../components/Cards";
 import axios from "axios";
 import CardsFeedback from "../components/CardsFeedback";
 import { useSnack } from "../../providers/SnackbarProvider";

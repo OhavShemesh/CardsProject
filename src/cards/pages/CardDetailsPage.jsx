@@ -10,22 +10,15 @@ import {
   Typography,
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader";
+import useCards from "../hooks/useCards";
 
 export default function CardDetailsPage() {
-  const [card, setCard] = useState();
   const { id } = useParams();
+  const { card, getCardById } = useCards()
 
   useEffect(() => {
-    const getCardDetails = async () => {
-      const response = await fetch(
-        `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`
-      );
-      const data = await response.json();
-      setCard(data);
-    };
-
-    getCardDetails();
-  }, []);
+    getCardById(id);
+  }, [id]);
 
   if (!card) return <Spinner />;
 

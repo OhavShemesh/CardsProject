@@ -27,11 +27,19 @@ export default function Counter() {
     setCounter((prev) => prev - jumps);
   };
 
+  const handleReset = () => {
+    setCounter(0), setJumps(1)
+  }
+  const handleChangeJumps = (newJumps) => {
+    setJumps(newJumps)
+  }
+
   return (
     <div>
       <Typography>{counter}</Typography>
       <Button onClick={handleClickPlus}>+</Button>
       <Button onClick={handleClickMinus}>-</Button>
+      <Button onClick={handleReset}>reset</Button>
       <Select
         value={jumps}
         label="Jumps"
