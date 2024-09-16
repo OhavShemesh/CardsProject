@@ -15,7 +15,6 @@ export default function Counter() {
   }, [age]);
 
   const printSomething = useCallback(() => {
-    console.log("Something");
   }, []);
 
   return (

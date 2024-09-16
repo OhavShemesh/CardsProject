@@ -6,9 +6,9 @@ import ROUTES from "../../../routes/routesModel";
 export default function LogoIcon() {
   return (
     <>
-      <NavBarLink to={ROUTES.ROOT}>
+      <NavBarLink to={ROUTES.CARDS}>
         <IconButton>
-          <Avatar src="/images/business-card.png" alt="Business card icon" />
+          <Avatar src="/images/avatar.png" alt="Business card icon" />
         </IconButton>
       </NavBarLink>
     </>

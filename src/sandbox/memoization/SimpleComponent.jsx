@@ -1,7 +1,6 @@
 import React, { memo } from "react";
 
 export default memo(function SimpleComponent({ user, printSomething }) {
-  console.log("simple component render");
   return (
     <div>
       <h3>

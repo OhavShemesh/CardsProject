@@ -60,6 +60,7 @@ const Form = ({
             onClick={onSubmit}
             disabled={!validateForm()}
             size="large"
+            to={"/cards"}
           />
         </Grid>
       </Grid>

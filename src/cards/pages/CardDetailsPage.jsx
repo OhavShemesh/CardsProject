@@ -11,16 +11,20 @@ import {
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader";
 import useCards from "../hooks/useCards";
+import Error from "../../components/Error";
 
 export default function CardDetailsPage() {
+  const { card, isLoading, error, getCardById } = useCards();
   const { id } = useParams();
-  const { card, getCardById } = useCards()
+
 
   useEffect(() => {
     getCardById(id);
   }, [id]);
 
-  if (!card) return <Spinner />;
+  if (isLoading) return <Spinner />;
+  if (error) return <Error errorMessage={error} />;
+
 
   return (
     <Container sx={{ mt: 4 }}>
@@ -82,5 +86,6 @@ export default function CardDetailsPage() {
         </Grid>
       </Grid>
     </Container>
+
   );
 }

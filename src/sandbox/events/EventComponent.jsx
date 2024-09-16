@@ -3,14 +3,11 @@ import React from "react";
 
 export default function EventComponent() {
   const handleClick = () => {
-    console.log("Hello world");
   };
   const handleClickWithData = (name) => {
-    console.log("The name is " + name);
   };
 
   const handleEventClick = (e) => {
-    console.log(e);
   };
 
   return (
@@ -27,10 +24,6 @@ export default function EventComponent() {
       </Button>
 
       <TextField
-        onChange={(e) => console.log(e.target.value)}
-        onMouseOver={() => {
-          console.log("hello!!");
-        }}
       />
     </div>
   );

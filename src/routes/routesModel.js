@@ -11,8 +11,12 @@ const ROUTES = {
   LOGIN: "/login",
   USER_PROFILE: "/user-info",
   EDIT_USER: "/edit-user",
-  WIDNOW: "/window",
   SANDBOX: "/sandbox",
+  DELETED: "/deleted",
+  ADD_CARD: "/add-card",
+  CARD_EDIT: "/card-edit",
+  COUNTRY: "/country",
+  CRMSYSTEM: "crm-system"
 };
 
 export default ROUTES;

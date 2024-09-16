@@ -12,6 +12,8 @@ export default function CardComponent({
   handleDelete,
   handleEdit,
   handleLike,
+  liked,
+  isFavorite,
 }) {
   const navigate = useNavigate();
   return (
@@ -37,6 +39,7 @@ export default function CardComponent({
         handleDelete={handleDelete}
         handleLike={handleLike}
         handleEdit={handleEdit}
+        liked={liked}
       />
     </Card>
   );

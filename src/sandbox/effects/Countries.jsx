@@ -10,7 +10,6 @@ export default function Countries() {
     const getCountries = async () => {
       let response = await fetch("https://restcountries.com/v3.1/all");
       let data = await response.json();
-      console.log(data);
       setAllCountries(data);
       setFilteredAllCountries(data);
     };

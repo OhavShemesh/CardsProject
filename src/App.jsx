@@ -10,13 +10,13 @@ function App() {
   return (
     <BrowserRouter>
       <CustomThemeProvider>
-        <SnackbarProvider>
-          <UserProvider>
+        <UserProvider>
+          <SnackbarProvider>
             <Layout>
               <Router />
             </Layout>
-          </UserProvider>
-        </SnackbarProvider>
+          </SnackbarProvider>
+        </UserProvider>
       </CustomThemeProvider>
     </BrowserRouter>
   );

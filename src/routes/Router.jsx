@@ -10,7 +10,12 @@ import MyCardsPage from "../cards/pages/MyCardsPage";
 import SandboxPage from "../sandbox/SandboxPage";
 import SignupPage from "../users/pages/SignupPage";
 import CardDetailsPage from "../cards/pages/CardDetailsPage";
-import UseWindowSize from "../homework/UseWindowSize";
+import DeletedCards from "../cards/pages/DeletedCards";
+import AddCardPage from "../cards/pages/AddCardPage";
+import EditCardPage from "../cards/pages/EditCardPage";
+import Countries from "../sandbox/effects/Countries";
+import CrmSystem from "../adminActions/CrmSystem";
+import EditProfile from "../users/editProfile/EditProfile";
 
 export default function Router() {
   return (
@@ -24,7 +29,14 @@ export default function Router() {
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
       <Route path={ROUTES.CARD_INFO + "/:id"} element={<CardDetailsPage />} />
       <Route path={ROUTES.SANDBOX} element={<SandboxPage />} />
-      <Route path={ROUTES.WIDNOW} element={<UseWindowSize />} />
+      <Route path={ROUTES.DELETED} element={<DeletedCards />} />
+      <Route path={ROUTES.ADD_CARD} element={<AddCardPage />} />
+      <Route path={ROUTES.CARD_EDIT + "/:id"} element={<EditCardPage />} />
+      <Route path={ROUTES.CRMSYSTEM} element={<CrmSystem />} />
+      <Route path={ROUTES.USER_PROFILE} element={<EditProfile />} />
+
+
+
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>

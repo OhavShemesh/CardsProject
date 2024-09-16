@@ -15,7 +15,7 @@ export default function Logo() {
             display: { xs: "none", md: "inline-flex" },
           }}
         >
-          BCard
+          Ohav's Project
         </Typography>
       </NavBarLink>
     </>

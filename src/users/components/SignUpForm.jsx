@@ -1,7 +1,12 @@
 import React from "react";
-import Form from "../../sandbox/forms/components/Form";
-import Input from "../../sandbox/forms/components/Input";
-import { Grid, FormControlLabel, Checkbox } from "@mui/material";
+import Form from "../../forms/components/Form";
+import Input from "../../forms/components/Input";
+import { Grid, FormControlLabel, Checkbox, Button } from "@mui/material";
+import NotRequired from "../../forms/components/NotRequired";
+import ROUTES from "../../routes/routesModel";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import { Link } from "react-router-dom";
+
 
 export default function SignupForm({
   onSubmit,
@@ -13,6 +18,7 @@ export default function SignupForm({
   onInputChange,
   handleChangeCheckBox,
 }) {
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -27,15 +33,15 @@ export default function SignupForm({
         error={errors.first}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
-      <Input
+      <NotRequired
         name="middle"
         label="middle name"
         error={errors.middle}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
         required={false}
       />
       <Input
@@ -44,7 +50,7 @@ export default function SignupForm({
         error={errors.last}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
       <Input
         name="phone"
@@ -53,7 +59,7 @@ export default function SignupForm({
         error={errors.phone}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
       <Input
         name="email"
@@ -62,7 +68,7 @@ export default function SignupForm({
         error={errors.email}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
       <Input
         name="password"
@@ -71,33 +77,33 @@ export default function SignupForm({
         error={errors.password}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
-      <Input
+      <NotRequired
         name="url"
         label="image url"
         error={errors.url}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
         required={false}
       />
-      <Input
+      <NotRequired
         name="alt"
         label="image alt"
         error={errors.alt}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
         required={false}
       />
-      <Input
+      <NotRequired
         name="state"
         label="state"
         error={errors.state}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
         required={false}
       />
       <Input
@@ -106,7 +112,7 @@ export default function SignupForm({
         error={errors.country}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
       <Input
         name="city"
@@ -114,7 +120,7 @@ export default function SignupForm({
         error={errors.city}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
       <Input
         name="street"
@@ -122,7 +128,7 @@ export default function SignupForm({
         error={errors.street}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
       <Input
         name="houseNumber"
@@ -131,24 +137,37 @@ export default function SignupForm({
         error={errors.houseNumber}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
       />
-      <Input
+      <NotRequired
         name="zip"
         label="zip"
         error={errors.zip}
         onChange={onInputChange}
         data={data}
-        sm={6}
+        sm={12}
         required={false}
       />
       <Grid item>
+
         <FormControlLabel
           onChange={handleChangeCheckBox}
           name="isBusiness"
-          control={<Checkbox value={data.isBusiness} color="primary" />}
+          control={<Checkbox value={data?.isBusiness} color="primary" />}
           label="Signup as business"
         />
+        <Grid item xs={12}>
+          <Button
+            variant="outlined"
+            component={Link}
+            to={ROUTES.LOGIN}
+            startIcon={<AccountBoxIcon />}
+            sx={{ width: "800px" }}
+          >
+            Already have an account? Login
+          </Button>
+        </Grid>
+
       </Grid>
     </Form>
   );

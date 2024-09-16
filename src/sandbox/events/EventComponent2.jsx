@@ -6,7 +6,6 @@ export default function EventComponent2() {
     <div>
       <Button
         onClick={(event) => {
-          console.log(event.target.textContent);
         }}
       >
         Click me!!!

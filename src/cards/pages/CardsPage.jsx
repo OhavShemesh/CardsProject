@@ -1,39 +1,25 @@
 import React, { useEffect, useState } from "react";
 import PageHeader from "../../components/PageHeader";
-import axios from "axios";
 import CardsFeedback from "../components/CardsFeedback";
-import { useSnack } from "../../providers/SnackbarProvider";
+import useCards from "../hooks/useCards";
+import AddNewCardButton from "../components/AddNewCardButton";
 
 export default function CardsPage() {
-  const [cards, setCards] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState();
-
-  const setSnack = useSnack();
+  const {
+    cards,
+    error,
+    isLoading,
+    getAllCards,
+    handleDelete,
+    handleLike,
+    liked,
+    deleted,
+    handleEdit,
+  } = useCards();
 
   useEffect(() => {
-    const getAllCards = async () => {
-      try {
-        let response = await axios.get(
-          "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards"
-        );
-        setCards(response.data);
-        setSnack("success", "All cards are here!");
-      } catch (err) {
-        setError(err.message);
-      }
-      setIsLoading(false);
-    };
     getAllCards();
   }, []);
-
-  const handleDelete = (id) => {
-    console.log("Card " + id + " deleted");
-  };
-
-  const handleLike = (id) => {
-    console.log("Card " + id + " has been liked");
-  };
 
   return (
     <div>
@@ -47,7 +33,11 @@ export default function CardsPage() {
         error={error}
         handleDelete={handleDelete}
         handleLike={handleLike}
+        liked={liked}
+        deleted={deleted}
+        handleEdit={handleEdit}
       />
+      <AddNewCardButton />
     </div>
   );
 }

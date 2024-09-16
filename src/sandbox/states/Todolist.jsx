@@ -32,7 +32,6 @@ export default function Todolist() {
     );
   };
 
-  console.log(myList);
   return (
     <div style={{ margin: "20px" }}>
       <TextField
