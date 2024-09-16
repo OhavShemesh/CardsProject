@@ -3,15 +3,20 @@ import CardComponent from "./card/CardComponent";
 import { Container } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 
-export default function Cards({ cards, handleDelete, handleLike, liked, handleEdit }) {
+export default function Cards({ cards, handleDelete, handleLike, handleEdit }) {
+  const [searchParams] = useSearchParams();
 
-  const [searchParams] = useSearchParams()
+  const searchValue = searchParams.get("searchValue")?.toLowerCase() || "";
 
-  const filtered = searchParams.get("searchValue")
+  const filteredCards = cards.filter((card) =>
+    card.title.toLowerCase().includes(searchValue) ||
+    card.description.toLowerCase().includes(searchValue)
+  );
+
   return (
     <Container sx={{ display: "flex", flexWrap: "wrap" }}>
-      {cards
-        .map((card) => (
+      {filteredCards.length > 0 ? (
+        filteredCards.map((card) => (
           <CardComponent
             card={card}
             key={card._id}
@@ -19,7 +24,10 @@ export default function Cards({ cards, handleDelete, handleLike, liked, handleEd
             handleLike={handleLike}
             handleEdit={handleEdit}
           />
-        ))}
+        ))
+      ) : (
+        <p>No cards found matching your search.</p>
+      )}
     </Container>
   );
 }
