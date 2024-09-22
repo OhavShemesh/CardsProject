@@ -10,12 +10,10 @@ export default function AboutPage() {
         subtitle="On this page you can find explanations about using the application"
       />
       <Box sx={{ padding: 3 }}>
-        {/* Project Title */}
         <Typography variant="h4" gutterBottom>
           React Project by Ohav Shemesh
         </Typography>
 
-        {/* Welcome Message */}
         <Typography variant="body1" paragraph>
           Welcome to <strong>Ohav Shemesh's React Project</strong>. This project
           features a responsive design, intuitive layout, and accessible content,
@@ -49,7 +47,6 @@ export default function AboutPage() {
 
         <Divider sx={{ my: 2 }} />
 
-        {/* Project Overview */}
         <Typography variant="h5" id="project-overview" gutterBottom>
           Project Overview
         </Typography>
@@ -71,7 +68,6 @@ export default function AboutPage() {
 
         <Divider sx={{ my: 2 }} />
 
-        {/* Usage */}
         <Typography variant="h5" id="usage" gutterBottom>
           Usage
         </Typography>
@@ -112,7 +108,6 @@ export default function AboutPage() {
 
         <Divider sx={{ my: 2 }} />
 
-        {/* Project Structure */}
         <Typography variant="h5" id="project-structure" gutterBottom>
           Project Structure
         </Typography>
@@ -159,7 +154,6 @@ export default function AboutPage() {
 
         <Divider sx={{ my: 2 }} />
 
-        {/* Tech Stack */}
         <Typography variant="h5" id="tech-stack" gutterBottom>
           Tech Stack
         </Typography>

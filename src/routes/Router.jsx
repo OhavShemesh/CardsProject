@@ -13,7 +13,6 @@ import CardDetailsPage from "../cards/pages/CardDetailsPage";
 import DeletedCards from "../cards/pages/DeletedCards";
 import AddCardPage from "../cards/pages/AddCardPage";
 import EditCardPage from "../cards/pages/EditCardPage";
-import Countries from "../sandbox/effects/Countries";
 import CrmSystem from "../adminActions/CrmSystem";
 import EditProfile from "../users/editProfile/EditProfile";
 

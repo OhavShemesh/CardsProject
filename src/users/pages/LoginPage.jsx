@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
 import { useCurrentUser } from "../providers/UserProvider";
@@ -10,10 +10,7 @@ import PageHeader from "../../components/PageHeader";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import axios from "axios";
-import { jwtDecode } from "jwt-decode";
 import useUsers from "../hooks/useUsers";
-import { useSnack } from "../../providers/SnackbarProvider";
 
 export default function LoginPage() {
   const { isLoading, error, handleLogin } = useUsers();
