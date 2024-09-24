@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
 import { useCurrentUser } from "../providers/UserProvider";
 import { Container } from "@mui/material";
@@ -8,7 +8,7 @@ import PageHeader from "../../components/PageHeader";
 import useForm from "../../forms/hooks/useForm";
 import signupSchema from "../models/signupSchema";
 import useUsers from "../hooks/useUsers";
-import initialSignupForm from "../helpers/initialForms/initialSignupForm";
+import initialSignupForm from "../helpers/initialForms/initialSignUpForm";
 
 
 

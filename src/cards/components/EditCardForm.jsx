@@ -1,12 +1,11 @@
 import { Divider, Grid, Paper, Typography } from '@mui/material'
-import React, { useEffect } from 'react'
+import React from 'react'
 import useForm from '../../forms/hooks/useForm';
 import initialCardForm from '../helpers/initialForms/initialCardForm';
 import cardSchema from '../models/cardSchema';
 import Form from '../../forms/components/Form';
 import Input from '../../forms/components/Input';
 import { updateCard } from '../../users/services/usersApiService';
-import { useSnack } from '../../providers/SnackbarProvider';
 
 export default function EditCardForm({ card }) {
 

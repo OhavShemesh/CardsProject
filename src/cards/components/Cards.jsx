@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import CardComponent from "./card/CardComponent";
 import { Container } from "@mui/material";
 import { useSearchParams } from "react-router-dom";

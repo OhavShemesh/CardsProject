@@ -1,5 +1,5 @@
 import { Button, MenuItem, Select, Typography } from "@mui/material";
-import React, { useCallback } from "react";
+import React from "react";
 import useCounter from "../hooks/useCounter";
 
 export default function Counter() {

@@ -4,7 +4,6 @@ import InfoIcon from "@mui/icons-material/Info";
 import StyleIcon from "@mui/icons-material/Style";
 import { useNavigate } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import DeleteIcon from '@mui/icons-material/Delete';
 import ROUTES from "../../routes/routesModel";
 import useCards from "../../cards/hooks/useCards";
 import { useCurrentUser } from "../../users/providers/UserProvider";
