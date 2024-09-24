@@ -6,6 +6,7 @@ import { useCurrentUser } from "../../users/providers/UserProvider";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
 import { jwtDecode } from "jwt-decode";
+import { changeLikeStatus, deleteCard, getCard, getCards } from "../services/cardsApiService";
 
 export default function useCards() {
   const [cards, setCards] = useState([]);
@@ -22,13 +23,10 @@ export default function useCards() {
 
   const getAllCards = useCallback(async () => {
     try {
-      let response = await axios.get(
-        "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards"
-      );
-      setCards(response.data);
-
+      setCards(await getCards());
 
       setSnack("success", "All cards are here!");
+
     } catch (err) {
       setError(err.message);
     }
@@ -37,11 +35,7 @@ export default function useCards() {
 
   const getCardById = useCallback(async (id) => {
     try {
-      const response = await axios.get(
-        `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`
-      );
-      const data = response.data;
-      setCard(data);
+      setCard(await getCard(id));
     } catch (err) {
       setError(err.message);
     }
@@ -50,7 +44,7 @@ export default function useCards() {
 
   const handleDelete = useCallback(async (id) => {
     try {
-      await axios.delete(`https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`);
+      await deleteCard(id);
       setCards(prevCards => prevCards.filter(card => card._id !== id));
       setSnack("success", "Card deleted");
     } catch (err) {
@@ -62,7 +56,7 @@ export default function useCards() {
 
   const handleLike = useCallback(async (id) => {
     try {
-      await axios.patch(`https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`);
+      await changeLikeStatus(id);
       setCards((prevCards) =>
         prevCards.map((card) =>
           card._id === id

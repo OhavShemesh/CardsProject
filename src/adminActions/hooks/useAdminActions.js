@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useSnack } from "../../providers/SnackbarProvider";
-import axios from "axios";
 import { useSearchParams } from "react-router-dom";
+import { ChangeStatus, getUser, getUsers } from "../../users/services/usersApiService";
 
 export default function useAdminActions() {
     const [users, setUsers] = useState([]);
@@ -18,8 +18,7 @@ export default function useAdminActions() {
         setIsLoading(true);
         setTimeout(async () => {
             try {
-                const response = await axios.get("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/users");
-                setUsers(response.data);
+                setUsers(await getUsers());
                 setSnack("success", "Succeed Getting Users");
 
             } catch (err) {
@@ -32,11 +31,11 @@ export default function useAdminActions() {
 
     const handleDeleteUser = async (userId) => {
         try {
-            let deletedUser = await axios.get(`https://monkfish-app-z9uza.ondigitalocean.app/bcard2/users/${userId}`);
+            let deletedUser = await getUser(userId);
             if (deletedUser.data.isAdmin) {
                 setSnack("error", "Can't delete admin");
             } else {
-                await axios.delete(`https://monkfish-app-z9uza.ondigitalocean.app/bcard2/users/${deletedUser.data._id}`);
+                await deletedUser(userId);
                 setSnack(deletedUser.data.isBusiness ? "warning" : "success", `User ${deletedUser.data.isBusiness ? 'Business' : ''} deleted`);
                 setRows(prevRows => prevRows.filter(row => row.DeleteUser !== deletedUser.data._id));
             }
@@ -47,7 +46,7 @@ export default function useAdminActions() {
 
     const handleChangeStatus = async (userId) => {
         try {
-            const updateduser = await axios.patch(`https://monkfish-app-z9uza.ondigitalocean.app/bcard2/users/${userId}`);
+            const updateduser = await ChangeStatus(userId);
 
             setRows(prevRows =>
                 prevRows.map(row =>

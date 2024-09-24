@@ -5,6 +5,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Box, IconButton, CardActions } from "@mui/material";
 import { useCurrentUser } from "../../../users/providers/UserProvider";
 import axios from "axios";
+import { getCard } from "../../services/cardsApiService";
 
 export default function CardActionBar({
   cardId,
@@ -18,8 +19,7 @@ export default function CardActionBar({
   useEffect(() => {
     const fetchCardData = async () => {
       try {
-        const response = await axios.get(`https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${cardId}`);
-        const data = response.data;
+        const data = await getCard(cardId);
         if (data.likes.includes(user?._id)) {
           setIsFavorite("red");
         } else {
@@ -29,15 +29,14 @@ export default function CardActionBar({
       }
     };
 
-    fetchCardData(); 
+    fetchCardData();
 
   }, [cardId, user?._id]);
 
   const handleLikeClick = async () => {
     try {
-      await handleLike(cardId); 
-      const response = await axios.get(`https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${cardId}`);
-      const data = response.data;
+      await handleLike(cardId);
+      const data = await getCard(cardId);
       setIsFavorite(data.likes.includes(user?._id) ? "red" : "");
     } catch (err) {
     }
