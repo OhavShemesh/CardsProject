@@ -8,7 +8,7 @@ import PageHeader from "../../components/PageHeader";
 import useForm from "../../forms/hooks/useForm";
 import signupSchema from "../models/signupSchema";
 import useUsers from "../hooks/useUsers";
-import initialSignupForm from "../helpers/initialForms/initialSignupForm";
+import initialSignupForm from "../helpers/initialForms/initialSignUpForm";
 
 
 
